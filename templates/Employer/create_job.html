@@ -1,0 +1,12 @@
+{% extends 'Employer/EMPLOYER_DASH.html' %}
+{%load crispy_forms_tags %}
+
+
+{% block content %}
+  <h2>Post a Job</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ job_post_form|crispy }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}
