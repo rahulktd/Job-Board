@@ -2,6 +2,8 @@ from datetime import date
 
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils import timezone
+
 
 # Create your models here.
 class Reg(AbstractUser):
@@ -39,7 +41,17 @@ class Job(models.Model):
     posted_by = models.ForeignKey(Reg, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     type = models.CharField(max_length=20, choices=JOB_CHOICES)
-
+    applicant = models.ForeignKey(Reg, on_delete=models.CASCADE, related_name='applied_jobs',null=True,blank=True)
 
     def __str__(self):
         return self.title
+
+class JobApplication(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    cv = models.FileField()
+    job_seeker = models.ForeignKey(Reg, on_delete=models.CASCADE)
+    job_post = models.ForeignKey(Job, on_delete=models.CASCADE)
+    applied_at = models.DateTimeField(default=timezone.now)
+    def __str__(self):
+        return f"{self.job_seeker.username} - {self.job_post.title}"

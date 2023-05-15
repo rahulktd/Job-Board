@@ -58,38 +58,38 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Orders</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href=" {% url "seeker_dashboard" %}">Bills</a>
-                    <a class="collapse-item" href=" {% url "seeker_dashboard" %}">Payment History</a>
-                </div>
-            </div>
-        </li>
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"-->
+<!--               aria-expanded="true" aria-controls="collapseTwo">-->
+<!--                <i class="fas fa-fw fa-cog"></i>-->
+<!--                <span>Orders</span>-->
+<!--            </a>-->
+<!--            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">-->
+<!--                <div class="bg-white py-2 collapse-inner rounded">-->
+<!--                    <a class="collapse-item" href=" {% url "seeker_dashboard" %}">Bills</a>-->
+<!--                    <a class="collapse-item" href=" {% url "seeker_dashboard" %}">Payment History</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Work status</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <!--                        <h6 class="collapse-header">Custom Utilities:</h6>-->
-                                        <a class="collapse-item" href=" {% url "seeker_dashboard" %}">Bookings</a>
+<!--        <li class="nav-item">-->
+<!--            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"-->
+<!--               aria-expanded="true" aria-controls="collapseUtilities">-->
+<!--                <i class="fas fa-fw fa-wrench"></i>-->
+<!--                <span>Work status</span>-->
+<!--            </a>-->
+<!--            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"-->
+<!--                 data-parent="#accordionSidebar">-->
+<!--                <div class="bg-white py-2 collapse-inner rounded">-->
+<!--                    &lt;!&ndash;                        <h6 class="collapse-header">Custom Utilities:</h6>&ndash;&gt;-->
+<!--                                        <a class="collapse-item" href=" {% url "seeker_dashboard" %}">Bookings</a>-->
 
-                    <!--                        <a class="collapse-item" href=" {% static 'utilities-border.html' %} ">Borders</a>-->
-                    <!--                        <a class="collapse-item" href=" {% static 'utilities-animation.html' %} ">Animations</a>-->
-                    <!--                        <a class="collapse-item" href=" {% static 'utilities-other.html' %} ">Other</a>-->
-                </div>
-            </div>
-        </li>
+<!--                    &lt;!&ndash;                        <a class="collapse-item" href=" {% static 'utilities-border.html' %} ">Borders</a>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        <a class="collapse-item" href=" {% static 'utilities-animation.html' %} ">Animations</a>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        <a class="collapse-item" href=" {% static 'utilities-other.html' %} ">Other</a>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
 
         <!-- Divider -->
         <!--            <hr class="sidebar-divider">-->
@@ -122,22 +122,22 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-                <a class="nav-link" href=" {% url 'seeker_dashboard' %} ">
+                <a class="nav-link" href=" {% url 'jobs' %} ">
                     <i class="fas fa-fw fa-calendar"></i>
-                    <span>Book an appointment</span></a>
+                    <span>Jobs</span></a>
             </li>
 
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-                <a class="nav-link" href=" {% url 'seeker_dashboard' %} ">
+                <a class="nav-link" href=" {% url 'applied' %} ">
                     <i class="fas fa-fw fa-comments"></i>
-                    <span>Feedback</span></a>
+                    <span>Applied Jobs</span></a>
             </li>
              <li class="nav-item">
-                <a class="nav-link" href=" {% url 'seeker_dashboard' %} ">
+                <a class="nav-link" href=" {% url 'profile' %} ">
                     <i class="fas fa-fw fa-comments"></i>
-                    <span>Feedbacks and reply</span></a>
+                    <span>Update Profile</span></a>
             </li>
 
         <!-- Divider -->

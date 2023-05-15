@@ -4,11 +4,14 @@ from django import forms
 
 from Jobs.models import Reg, Job
 
+class Dateinput(forms.DateInput):
+    input_type = 'date'
 
 class SeekerForm(UserCreationForm):
+    birth_date = forms.DateField(widget=Dateinput)
     class Meta:
         model = Reg
-        fields = ("email","name","address","mobile",'username','password1','password2')
+        fields = ("email","name","birth_date","address","mobile",'username','password1','password2')
 
 class EmployerForm(UserCreationForm):
     class Meta:
@@ -18,4 +21,9 @@ class EmployerForm(UserCreationForm):
 class JobPostForm(forms.ModelForm):
     class Meta:
         model = Job
-        fields = ['title','type','description','location','salary']
+        fields = ('title','type','description','location','salary')
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Reg
+        fields = ('username', 'name', 'email', 'birth_date', 'address', 'mobile',)

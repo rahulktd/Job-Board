@@ -4,9 +4,7 @@
   <h2>Job Posts</h2>
   <ul>
     {% for post in jobs %}
-      <li>{{ post.title }} - {{ post.type }}</li>
-    {% empty %}
-      <li>No job posts yet.</li>
+      <li>{{ post.title }} - {{ post.get_type_display }}</li>
     {% endfor %}
   </ul>
 {% endblock %}

@@ -1,0 +1,48 @@
+{% extends "Admin/Admin_dash.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<div class="card">
+  <div class="card-body">
+<table class="table table-hover table-bordered border-primary">
+    <thead>
+    <tr>
+        <th scope="col">Job</th>
+        <th scope="col">Recruiter</th>
+        <th scope="col">Location</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Type</th>
+        <th scope="col">Delete</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for job in data %}
+    <tr>
+        <td scope="row">{{job.title}}</td>
+        <td scope="row">{{job.posted_by}}</td>
+        <td scope="row">{{job.location}}</td>
+        <td scope="row">{{job.salary}}</td>
+        <td scope="row">{{job.get_type_display}}</td>
+        <td scope="row">
+            <form action="{% url 'delete_job' job.id %}" method="POST" class="d-inline-block">
+{% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="delete"/>
+            </form>
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+      </div>
+</div>
+{% endblock %}
+</body>
+</html>

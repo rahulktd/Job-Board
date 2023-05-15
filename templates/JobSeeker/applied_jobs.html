@@ -1,0 +1,16 @@
+{% extends 'JobSeeker/USER_DASH.html' %}
+{% block content %}
+  <h2>Applied Jobs</h2>
+  {% if applied_jobs %}
+    <ul>
+      {% for job in applied_jobs %}
+        {% if job.applicant %}
+          <li>{{ job.title }}</li>
+          <!-- Add other job details as needed -->
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No applied jobs found.</p>
+  {% endif %}
+{% endblock %}

@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-
-from Jobs.models import Reg
+from Jobs.models import Reg, Job
 
 
 def recruiter_view(request):
@@ -20,3 +19,12 @@ def delete_employee(request, id):
     data = Reg.objects.get(id=id)
     data.delete()
     return redirect("job_seeker_view")
+
+def posted_jobs_rec(request):
+    data = Job.objects.all()
+    return render(request, 'Admin/view_posted_jobs.html', {"data": data})
+
+def delete_job(request, id):
+    data = Job.objects.get(id=id)
+    data.delete()
+    return redirect("posted_jobs_rec")
