@@ -1,10 +1,41 @@
 {% extends 'Employer/EMPLOYER_DASH.html' %}
 
 {% block content %}
-  <h2>Job Posts</h2>
-  <ul>
-    {% for post in jobs %}
-      <li>{{ post.title }} - {{ post.get_type_display }}</li>
-    {% endfor %}
-  </ul>
+<div class="card">
+  <div class="card-body">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Responses</th>
+          <th scope="col">Delete</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in jobs %}
+        <tr>
+          <td>{{ post.title }}</td>
+          <td>{{ post.get_type_display }}</td>
+          <td><a href="{% url 'applied_job_seeker' post.id %}">See</a></td>
+          <td scope="row">
+            <form action="{% url 'delete_job_rec' post.id %}" method="POST" class="d-inline-block">
+{% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="delete"/>
+            </form>
+        </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="3">No applications found.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
 {% endblock %}

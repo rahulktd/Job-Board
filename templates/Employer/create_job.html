@@ -3,10 +3,14 @@
 
 
 {% block content %}
+<div class="card">
+  <div class="card-body">
   <h2>Post a Job</h2>
   <form method="post">
     {% csrf_token %}
     {{ job_post_form|crispy }}
     <button type="submit">Submit</button>
   </form>
+    </div>
+</div>
 {% endblock %}

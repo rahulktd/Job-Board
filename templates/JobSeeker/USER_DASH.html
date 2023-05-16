@@ -123,7 +123,7 @@
         <!-- Nav Item - Charts -->
         <li class="nav-item">
                 <a class="nav-link" href=" {% url 'jobs' %} ">
-                    <i class="fas fa-fw fa-calendar"></i>
+                    <i class="fas fa-fw fa-briefcase"></i>
                     <span>Jobs</span></a>
             </li>
 
@@ -131,13 +131,23 @@
         <!-- Nav Item - Tables -->
         <li class="nav-item">
                 <a class="nav-link" href=" {% url 'applied' %} ">
-                    <i class="fas fa-fw fa-comments"></i>
+                    <i class="fas fa-fw fa-tasks"></i>
                     <span>Applied Jobs</span></a>
             </li>
              <li class="nav-item">
                 <a class="nav-link" href=" {% url 'profile' %} ">
-                    <i class="fas fa-fw fa-comments"></i>
+                    <i class="fas fa-fw fa-user-edit"></i>
                     <span>Update Profile</span></a>
+            </li>
+        <li class="nav-item">
+                <a class="nav-link" href=" {% url 'jobseeker_feedback' %} ">
+                    <i class="fas fa-fw fa-comments"></i>
+                    <span>Feedback</span></a>
+            </li>
+        <li class="nav-item">
+                <a class="nav-link" href=" {% url 'jobseeker_feedback_view' %} ">
+                    <i class="fas fa-fw fa-comments"></i>
+                    <span>Reply</span></a>
             </li>
 
         <!-- Divider -->

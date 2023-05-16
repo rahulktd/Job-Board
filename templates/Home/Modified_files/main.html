@@ -45,7 +45,7 @@
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href=" {% static 'main/index.html' %} " class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+            <a href=" {% url "index" %} " class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 <h1 class="m-0 text-primary">JobEntry</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -53,24 +53,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href=" {% static 'main/index.html' %} " class="nav-item nav-link active">Home</a>
-                    <a href=" {% static 'main/about.html' %} " class="nav-item nav-link">About</a>
+                    <a href=" {% url "index" %} " class="nav-item nav-link active">Home</a>
+                    <a href=" {% url "index" %} " class="nav-item nav-link">About</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href=" {% static 'main/job-list.html' %} " class="dropdown-item">Job List</a>
-                            <a href=" {% static 'main/job-detail.html' %} " class="dropdown-item">Job Detail</a>
+                            <a href=" {% url "index" %} " class="dropdown-item">Job List</a>
+                            <a href=" {% url "index" %} " class="dropdown-item">Job Detail</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href=" {% static 'main/category.html' %} " class="dropdown-item">Job Category</a>
-                            <a href=" {% static 'main/testimonial.html' %} " class="dropdown-item">Testimonial</a>
-                            <a href=" {% static 'main/404.html' %} " class="dropdown-item">404</a>
+                            <a href=" {% url "index" %} " class="dropdown-item">Job Category</a>
+                            <a href=" {% url "index" %} " class="dropdown-item">Testimonial</a>
+                            <a href=" {% url "index" %} " class="dropdown-item">404</a>
                         </div>
                     </div>
-                    <a href=" {% static 'main/contact.html' %} " class="nav-item nav-link">Contact</a>
+                    <a href=" {% url "index" %} " class="nav-item nav-link">Contact</a>
                 </div>
                 <a href=" {% url "registration" %} " class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
@@ -158,56 +158,56 @@
                 <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
                 <div class="row g-4">
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="cat-item rounded p-4" href=" {% static '' %} ">
+                        <a class="cat-item rounded p-4" href=" {% url "index" %} ">
                             <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
                             <h6 class="mb-3">Marketing</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="cat-item rounded p-4" href=" {% static '' %} ">
+                        <a class="cat-item rounded p-4" href=" {% url "index" %} ">
                             <i class="fa fa-3x fa-headset text-primary mb-4"></i>
                             <h6 class="mb-3">Customer Service</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="cat-item rounded p-4" href=" {% static '' %} ">
+                        <a class="cat-item rounded p-4" href=" {% url "index" %} ">
                             <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
                             <h6 class="mb-3">Human Resource</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <a class="cat-item rounded p-4" href=" {% static '' %} ">
+                        <a class="cat-item rounded p-4" href=" {% url "index" %} ">
                             <i class="fa fa-3x fa-tasks text-primary mb-4"></i>
                             <h6 class="mb-3">Project Management</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="cat-item rounded p-4" href=" {% static '' %} ">
+                        <a class="cat-item rounded p-4" href=" {% url "index" %} ">
                             <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
                             <h6 class="mb-3">Business Development</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="cat-item rounded p-4" href=" {% static '' %} ">
+                        <a class="cat-item rounded p-4" href=" {% url "index" %} ">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
                             <h6 class="mb-3">Sales & Communication</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="cat-item rounded p-4" href=" {% static '' %} ">
+                        <a class="cat-item rounded p-4" href=" {% url "index" %} ">
                             <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
                             <h6 class="mb-3">Teaching & Education</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <a class="cat-item rounded p-4" href=" {% static '' %} ">
+                        <a class="cat-item rounded p-4" href=" {% url "index" %} ">
                             <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
                             <h6 class="mb-3">Design & Creative</h6>
                             <p class="mb-0">123 Vacancy</p>
@@ -245,7 +245,7 @@
                         <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
                         <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
                         <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                        <a class="btn btn-primary py-3 px-5 mt-3" href=" {% static '' %} ">Read More</a>
+                        <a class="btn btn-primary py-3 px-5 mt-3" href=" {% url "index" %} ">Read More</a>
                     </div>
                 </div>
             </div>
@@ -290,8 +290,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -310,8 +310,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -330,8 +330,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -350,8 +350,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -370,14 +370,14 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
                                 </div>
                             </div>
-                            <a class="btn btn-primary py-3 px-5" href=" {% static '' %} ">Browse More Jobs</a>
+                            <a class="btn btn-primary py-3 px-5" href=" {% url "index" %} ">Browse More Jobs</a>
                         </div>
                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="job-item p-4 mb-4">
@@ -393,8 +393,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -413,8 +413,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -433,8 +433,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -453,8 +453,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -473,8 +473,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -496,8 +496,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -516,8 +516,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} " >Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -536,8 +536,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -556,8 +556,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -576,8 +576,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=" {% static '' %} "><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href=" {% static '' %} ">Apply Now</a>
+                                            <a class="btn btn-light btn-square me-3" href=" {% url "index" %} "><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href=" {% url "index" %} ">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
@@ -653,19 +653,19 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Company</h5>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">About Us</a>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">Our Services</a>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">Terms & Condition</a>
+                        <a class="btn btn-link text-white-50" href=" # ">About Us</a>
+                        <a class="btn btn-link text-white-50" href=" # ">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href=" # ">Our Services</a>
+                        <a class="btn btn-link text-white-50" href=" # ">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href=" # ">Terms & Condition</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Quick Links</h5>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">About Us</a>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">Our Services</a>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href=" {% static '' %} ">Terms & Condition</a>
+                        <a class="btn btn-link text-white-50" href=" # ">About Us</a>
+                        <a class="btn btn-link text-white-50" href=" # ">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href=" # ">Our Services</a>
+                        <a class="btn btn-link text-white-50" href=" # ">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href=" # ">Terms & Condition</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Contact</h5>
@@ -673,10 +673,10 @@
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=" # "><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=" # "><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=" # "><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=" # "><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -701,10 +701,10 @@
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href=" {% static '' %} ">Home</a>
-                                <a href=" {% static '' %} ">Cookies</a>
-                                <a href=" {% static '' %} ">Help</a>
-                                <a href=" {% static '' %} ">FQAs</a>
+                                <a href=" # ">Home</a>
+                                <a href=" # ">Cookies</a>
+                                <a href=" # ">Help</a>
+                                <a href=" #">FQAs</a>
                             </div>
                         </div>
                     </div>

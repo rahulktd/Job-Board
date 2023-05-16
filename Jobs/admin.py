@@ -6,4 +6,5 @@ from Jobs import models
 admin.site.register(models.Reg),
 admin.site.register(models.Job),
 admin.site.register(models.JobApplication),
+admin.site.register(models.Feedback),
 

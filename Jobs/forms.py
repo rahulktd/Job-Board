@@ -2,7 +2,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms import forms
 from django import forms
 
-from Jobs.models import Reg, Job
+from Jobs.models import Reg, Job, Feedback, JobApplication
+
 
 class Dateinput(forms.DateInput):
     input_type = 'date'
@@ -23,7 +24,17 @@ class JobPostForm(forms.ModelForm):
         model = Job
         fields = ('title','type','description','location','salary')
 
+class JobApplicationForm(forms.ModelForm):
+    class Meta:
+        model = JobApplication
+        fields = ['name', 'email', 'cv']
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Reg
         fields = ('username', 'name', 'email', 'birth_date', 'address', 'mobile',)
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ('message',)

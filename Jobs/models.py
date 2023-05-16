@@ -49,9 +49,15 @@ class Job(models.Model):
 class JobApplication(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
-    cv = models.FileField()
+    cv = models.FileField(upload_to='documents/',null=True)
     job_seeker = models.ForeignKey(Reg, on_delete=models.CASCADE)
     job_post = models.ForeignKey(Job, on_delete=models.CASCADE)
     applied_at = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return f"{self.job_seeker.username} - {self.job_post.title}"
+
+class Feedback(models.Model):
+    user = models.ForeignKey(Reg,on_delete=models.DO_NOTHING)
+    date = models.DateField(auto_now=True)
+    message = models.CharField(max_length=150)
+    reply = models.CharField(max_length=150, null=True, blank=True)

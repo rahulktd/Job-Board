@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from Jobs.forms import JobPostForm
-from Jobs.models import Job
+from Jobs.models import Job, JobApplication
 
 
 def create_job_post(request):
@@ -21,3 +21,18 @@ def create_job_post(request):
 def jobs_posted(request):
     jobs = Job.objects.all()
     return render(request,'Employer/posted_jobs.html',{'jobs':jobs})
+
+def applied_job_seeker(request,id):
+    # applied_jobs = JobApplication.objects.all()
+    # return render(request, 'Employer/rec_applications.html', {'applied_jobs': applied_jobs})
+    # job = Job.objects.get(id=id)
+    # applications = JobApplication.objects.filter(job_post=job)
+    # return render(request, 'Employer/rec_applications.html', {'job': job, 'applications': applications})
+    job = Job.objects.get(id=id)
+    applications = job.jobapplication_set.all()
+    return render(request, 'Employer/rec_applications.html', {'job': job, 'applications': applications})
+
+def delete_job_rec(request, id):
+    data = Job.objects.get(id=id)
+    data.delete()
+    return redirect("jobs_posted")

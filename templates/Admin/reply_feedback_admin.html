@@ -1,0 +1,43 @@
+{% extends "Admin/Admin_dash.html" %}
+{% load static %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header"><strong>Reply to feedback</strong></div>
+    <div class="card-body card-block">
+        <form method="post">
+            {%csrf_token%}
+            <div class="form-group">
+                <label class="form-control-label">User</label>
+                <input required class="form-control" readonly value="{{feedback.user}}">
+            </div>
+            <div class="form-group">
+                <label class="form-control-label">Feedback</label>
+                <input required class="form-control" readonly value="{{feedback.message}}" >
+            </div>
+            <div class="form-group">
+                <label for="company" class="form-control-label">Reply</label>
+               <textarea cols="5" rows="7" required id="company" class="form-control" name="reply">
+      </textarea>
+            </div>
+
+            <div class="form-actions form-group">
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            </div>
+
+            {%for message in messages%}
+            <div class="alert alert-primary" role="alert">
+                {{message}}
+
+            </div>
+            {%endfor%}
+
+
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

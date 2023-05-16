@@ -16,15 +16,25 @@ urlpatterns = [
     path('delete_recruiter/<int:id>/', admin_view.delete_recruiter, name='delete_recruiter'),
     path('posted_jobs_rec', admin_view.posted_jobs_rec, name='posted_jobs_rec'),
     path('delete_job/<int:id>/', admin_view.delete_job, name='delete_job'),
+    path('reply_feedback/<int:id>/', admin_view.reply_feedback, name='reply_feedback'),
+    path('admin_feedback_view', admin_view.admin_feedback_view, name='admin_feedback_view'),
+    path('admin_feedback_reply', admin_view.admin_feedback_reply, name='admin_feedback_reply'),
+
+
 
     path('create_job_post',employer_view.create_job_post,name='create_job_post'),
     path('jobs_posted',employer_view.jobs_posted,name='jobs_posted'),
+    path('applied_job_seeker/<int:id>/',employer_view.applied_job_seeker,name='applied_job_seeker'),
+    path('delete_job_rec/<int:id>/',employer_view.delete_job_rec,name='delete_job_rec'),
+
+
 
     path('jobs', jobseeker_view.jobs, name='jobs'),
     path('apply_job/<int:id>/', jobseeker_view.apply_job, name='apply_job'),
     path('application/<int:id>/', jobseeker_view.application, name='application'),
-    path('submit_application/<int:id>/', jobseeker_view.submit_application, name='submit_application'),
-    path('applied', jobseeker_view.applied, name='applied'),
+    path('applied/', jobseeker_view.applied, name='applied'),
     path('profile', jobseeker_view.profile, name='profile'),
+    path('jobseeker_feedback', jobseeker_view.jobseeker_feedback, name='jobseeker_feedback'),
+    path('jobseeker_feedback_view', jobseeker_view.jobseeker_feedback_view, name='jobseeker_feedback_view'),
 
 ]

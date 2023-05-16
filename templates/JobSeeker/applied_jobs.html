@@ -3,11 +3,9 @@
   <h2>Applied Jobs</h2>
   {% if applied_jobs %}
     <ul>
-      {% for job in applied_jobs %}
-        {% if job.applicant %}
-          <li>{{ job.title }}</li>
-          <!-- Add other job details as needed -->
-        {% endif %}
+      {% for job_application in applied_jobs %}
+        <li>{{ job_application.job_post.title }}</li>
+        <!-- Display other job details as needed -->
       {% endfor %}
     </ul>
   {% else %}

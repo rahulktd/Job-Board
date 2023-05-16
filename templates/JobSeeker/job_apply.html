@@ -1,20 +1,12 @@
 {% extends 'JobSeeker/USER_DASH.html' %}
+{% load static %}
+
 {% block content %}
-  <h2>Job Application</h2>
-  <form method="POST" action="{% url 'submit_application' job.id %}" enctype="multipart/form-data">
+  <h2>Submit Application</h2>
+  <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <!-- Include job details if needed -->
-    <h3>{{ job.title }}</h3>
-    <p>{{ job.company }}</p>
-    <p>{{ job.location }}</p>
-    <p>{{ job.get_type_display }}</p>
-    <!-- Add more job details here -->
-
-    <!-- Add form fields for the job application, such as name, email, CV upload, etc. -->
-    <input type="text" name="name" placeholder="Your Name">
-    <input type="email" name="email" placeholder="Your Email">
-    <input type="file" name="cv" accept=".pdf,.doc,.docx">
-
-    <button type="submit">Submit Application</button>
+    {{ form }}
+    <input type="submit" value="Submit Application">
   </form>
 {% endblock %}
+
