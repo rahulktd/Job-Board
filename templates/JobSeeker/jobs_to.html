@@ -1,18 +1,18 @@
 {% extends 'JobSeeker/USER_DASH.html' %}
-{% block content %}
 
-  <h2>Jobs </h2>
-  <div class="job-cards">
+{% block content %}
+  <h2 style="text-align: center;">Jobs</h2>
+  <div class="job-cards" >
     {% for job in data %}
-      <div class="card">
-          <div class="card-body">
-        <h3>{{ job.title }}</h3>
-        <p>{{ job.posted_by }}</p>
-        <p>{{ job.location }}</p>
-        <p>{{ job.salary }}</p>
-        <p>{{ job.get_type_display }}</p>
-              <a href="{% url 'application' job.id %}" class="apply-button">Apply Now</a>
-      </div>
+      <div class="card" style="width: 70%; margin: 0 15%; margin-bottom: 10px; padding: 10px;">
+        <div class="card-body" style="text-align:center">
+          <h3><b>{{ job.title }}</b></h3>
+          <p>{{ job.posted_by }}</p>
+          <p>{{ job.location }}</p>
+          <p>₹:{{ job.salary }}</p>
+          <p><mark>{{ job.get_type_display }}</mark></p>
+          <a href="{% url 'application' job.id %}" role="button" class="btn btn-primary" class="apply-button">Apply Now</a>
+        </div>
       </div>
     {% endfor %}
   </div>

@@ -19,7 +19,7 @@ def create_job_post(request):
     return render(request, 'Employer/create_job.html', {'job_post_form': job_post_form})
 
 def jobs_posted(request):
-    jobs = Job.objects.all()
+    jobs = Job.objects.filter(posted_by=request.user)
     return render(request,'Employer/posted_jobs.html',{'jobs':jobs})
 
 def applied_job_seeker(request,id):

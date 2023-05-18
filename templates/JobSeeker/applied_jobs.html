@@ -1,5 +1,8 @@
 {% extends 'JobSeeker/USER_DASH.html' %}
 {% block content %}
+<div class="card" style="padding-top:10px">
+      <div class="card" style="width: 70%; margin: 0 15%; margin-bottom: 10px; padding: 10px;">
+
   <h2>Applied Jobs</h2>
   {% if applied_jobs %}
     <ul>
@@ -11,4 +14,6 @@
   {% else %}
     <p>No applied jobs found.</p>
   {% endif %}
+      </div>
+</div>
 {% endblock %}
