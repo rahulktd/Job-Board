@@ -4,11 +4,13 @@ from Jobs import views, employer_view, admin_view, jobseeker_view
 urlpatterns = [
     path('', views.index, name='index'),
     path('registration',views.registration,name='registration'),
-    path('user_login',views.user_login,name='user_login'),
+    path('user_login/',views.user_login,name='user_login'),
     path('admin_dashboard',views.admin_dashboard,name='admin_dashboard'),
     path('employee_registration',views.employee_registration,name='employee_registration'),
     path('seeker_dashboard',views.seeker_dashboard,name='seeker_dashboard'),
     path('employer_dashboard',views.employer_dashboard,name='employer_dashboard'),
+    path('logout_view', views.logout_view, name='logout_view'),
+
 
     path('recruiter_view', admin_view.recruiter_view, name='recruiter_view'),
     path('job_seeker_view', admin_view.job_seeker_view, name='job_seeker_view'),
@@ -36,5 +38,8 @@ urlpatterns = [
     path('profile', jobseeker_view.profile, name='profile'),
     path('jobseeker_feedback', jobseeker_view.jobseeker_feedback, name='jobseeker_feedback'),
     path('jobseeker_feedback_view', jobseeker_view.jobseeker_feedback_view, name='jobseeker_feedback_view'),
+    path('fulltime', jobseeker_view.fulltime, name='fulltime'),
+    path('parttime', jobseeker_view.parttime, name='parttime'),
+    path('internship', jobseeker_view.internship, name='internship'),
 
 ]

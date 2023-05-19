@@ -1,10 +1,12 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from Jobs.forms import JobPostForm
 from Jobs.models import Job, JobApplication
 
 
+@login_required
 def create_job_post(request):
     if request.method == 'POST':
         job_post_form = JobPostForm(request.POST)
@@ -18,10 +20,12 @@ def create_job_post(request):
         job_post_form = JobPostForm()
     return render(request, 'Employer/create_job.html', {'job_post_form': job_post_form})
 
+@login_required
 def jobs_posted(request):
     jobs = Job.objects.filter(posted_by=request.user)
     return render(request,'Employer/posted_jobs.html',{'jobs':jobs})
 
+@login_required
 def applied_job_seeker(request,id):
     # applied_jobs = JobApplication.objects.all()
     # return render(request, 'Employer/rec_applications.html', {'applied_jobs': applied_jobs})
@@ -32,6 +36,7 @@ def applied_job_seeker(request,id):
     applications = job.jobapplication_set.all()
     return render(request, 'Employer/rec_applications.html', {'job': job, 'applications': applications})
 
+@login_required
 def delete_job_rec(request, id):
     data = Job.objects.get(id=id)
     data.delete()

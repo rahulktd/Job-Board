@@ -1,5 +1,6 @@
 from django.contrib import messages
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect
 from Jobs.forms import EmployerForm, SeekerForm
@@ -9,12 +10,15 @@ from Jobs.forms import EmployerForm, SeekerForm
 def index(request):
     return render(request,"Home/Modified_files/main.html")
 
+@login_required
 def admin_dashboard(request):
     return render(request, "Admin/Admin_dash.html")
 
+@login_required
 def seeker_dashboard(request):
     return render(request,"JobSeeker/USER_DASH.html")
 
+@login_required
 def employer_dashboard(request):
     return render(request,"Employer/EMPLOYER_DASH.html")
 
@@ -63,3 +67,8 @@ def employee_registration(request):
     else:
         seeker_form = SeekerForm()
     return render(request, 'JobSeeker/reg_seeker.html', {'seeker_form': seeker_form})
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('user_login')

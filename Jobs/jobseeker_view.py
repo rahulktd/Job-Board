@@ -1,19 +1,23 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from Jobs.forms import ProfileForm, FeedbackForm, JobPostForm, JobApplicationForm
 from Jobs.models import Job, JobApplication, Feedback
 
 
+@login_required
 def jobs(request):
     data = Job.objects.all()
     return render(request, 'JobSeeker/jobs_to.html', {"data": data})
 
+@login_required
 def apply_job(request, id):
     job = Job.objects.get(id=id)
     return redirect ('jobs')
 
 
+@login_required
 def application(request, id):
     job = Job.objects.get(id=id)
     if request.method == 'POST':
@@ -26,15 +30,16 @@ def application(request, id):
             return redirect('jobs')
     else:
         form = JobApplicationForm()
-
     return render(request, 'JobSeeker/job_apply.html', {'form': form, 'job': job})
 
+@login_required
 def applied(request):
     user = request.user
     applied_jobs = JobApplication.objects.filter(job_seeker=user)
     return render(request, 'JobSeeker/applied_jobs.html', {'applied_jobs': applied_jobs})
 
 
+@login_required
 def profile(request):
     user = request.user
     if request.method == 'POST':
@@ -46,6 +51,7 @@ def profile(request):
         form = ProfileForm(instance=user)
     return render(request, 'JobSeeker/profile.html', {'form': form})
 
+@login_required
 def jobseeker_feedback(request):
     feedback_form = FeedbackForm
     u = request.user
@@ -61,11 +67,13 @@ def jobseeker_feedback(request):
         feedback_form = FeedbackForm
     return render(request, 'JobSeeker/user_feedback.html', {'feedback_form': feedback_form})
 
+@login_required
 def jobseeker_feedback_view(request):
     u = request.user
     feedback=Feedback.objects.filter(user=u)
     return render(request,'JobSeeker/user_feedback_view.html',{'feedback':feedback})
 
+@login_required
 def reply_view(request):
     feedback = Feedback.objects.get(id=id)
     if request.method == 'POST':
@@ -77,4 +85,17 @@ def reply_view(request):
         form = FeedbackForm()
     return render(request, 'JobSeeker/user_feedback_view.html', {'feedback': feedback})
 
+@login_required
+def fulltime(request):
+    jobs = Job.objects.filter(type="full_time")
+    return render(request,'JobSeeker/fulltime.html',{'jobs':jobs})
 
+@login_required
+def parttime(request):
+    jobs = Job.objects.filter(type="part_time")
+    return render(request,'JobSeeker/parttime.html',{'jobs':jobs})
+
+@login_required
+def internship(request):
+    jobs = Job.objects.filter(type="internship")
+    return render(request,'JobSeeker/internship.html',{'jobs':jobs})

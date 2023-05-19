@@ -74,7 +74,7 @@
                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
                   <li><a class="dropdown-item" href="{% url 'applied' %}">My Jobs</a></li>
                   <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                  <li><a class="dropdown-item" href="{% url 'logout_view' %}" >Logout</a></li>
                 </ul>
               </div>
             </span>
@@ -85,6 +85,31 @@
 
 
       {%block content%}
+<div class=" container ">
+        <div class="mt-5 ">
+            <div class="row" style="padding-left:140px;">
+            <div class="card m-4 bg-primary  " style="width: 18rem;">
+              <div class="card-body ">
+                <h5 class="card-title pt-3 text-center ">Full Time</h5>
+                <a href="{% url 'fulltime' %}" class="card-link font-monospace text-reset text-white fw-semibold">"Explore Full-Time Opportunities"</a>
+              </div>
+            </div>
+            <div class="card m-4 bg-danger-subtle" style="width: 18rem; ">
+              <div class="card-body">
+                <h5 class="card-title pt-3 text-center ">Part Time</h5>
+                <a href="{% url 'parttime' %}" class="card-link font-monospace text-reset text-white fw-semibold">"Discover Part-Time Opportunities"</a>
+              </div>
+            </div>
+            <div class="card m-4 bg-primary-subtle" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title pt-3 text-center ">Internship</h5>
+                <a href="{% url 'internship' %}" class="card-link font-monospace text-reset text-white fw-semibold">"Explore Internship Opportunities"</a>
+              </div>
+            </div>
+            </div>
+
+        </div>
+</div>
         {%endblock%}
 
         </div>
