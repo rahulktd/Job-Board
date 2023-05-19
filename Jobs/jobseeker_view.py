@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from Jobs.forms import ProfileForm, FeedbackForm, JobPostForm, JobApplicationForm
-from Jobs.models import Job, JobApplication, Feedback
+from Jobs.models import Job, JobApplication, Feedback, Reg
 
 
 @login_required
@@ -99,3 +99,8 @@ def parttime(request):
 def internship(request):
     jobs = Job.objects.filter(type="internship")
     return render(request,'JobSeeker/internship.html',{'jobs':jobs})
+
+@login_required
+def recruiter_view_jobseeker(request):
+    data = Reg.objects.filter(is_recruiter=True)
+    return render(request, 'JobSeeker/view_recruiters_jobseeker.html', {"data": data})

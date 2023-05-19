@@ -41,5 +41,6 @@ urlpatterns = [
     path('fulltime', jobseeker_view.fulltime, name='fulltime'),
     path('parttime', jobseeker_view.parttime, name='parttime'),
     path('internship', jobseeker_view.internship, name='internship'),
+    path('recruiter_view_jobseeker', jobseeker_view.recruiter_view_jobseeker, name='recruiter_view_jobseeker'),
 
 ]
