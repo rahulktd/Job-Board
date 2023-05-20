@@ -1,28 +1,23 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
 from Jobs.filters import JobsFilter
 from Jobs.forms import ProfileForm, FeedbackForm, JobPostForm, JobApplicationForm
 from Jobs.models import Job, JobApplication, Feedback, Reg
 
-
-# def jobs(request):
-#     data = Job.objects.all()
-#     return render(request, 'JobSeeker/jobs_to.html', {"data": data})
-
-@login_required
-# def jobs(request):
-#     job_list = Job.objects.all()
-#     job_filter = JobsFilter(request.GET, queryset=job_list)
-#     job_list = job_filter.qs
-#     return render(request, 'JobSeeker/jobs_to.html', {"job_list": job_list, "job_filter": job_filter})
-
 def jobs(request):
     job_list = Job.objects.all()
     job_filter = JobsFilter(request.GET, queryset=job_list)
     job_list = job_filter.qs
-    return render(request, 'JobSeeker/jobs_to.html', {"job_list": job_list, "job_filter": job_filter})
+
+    paginator = Paginator(job_list, 3)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'JobSeeker/jobs_to.html', {"job_list": page_obj, "job_filter": job_filter})
 
 @login_required
 def apply_job(request, id):
@@ -101,19 +96,33 @@ def reply_view(request):
 @login_required
 def fulltime(request):
     jobs = Job.objects.filter(type="full_time")
-    return render(request,'JobSeeker/fulltime.html',{'jobs':jobs})
+    paginator = Paginator(jobs, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'JobSeeker/fulltime.html',{"page_obj": page_obj})
 
 @login_required
 def parttime(request):
     jobs = Job.objects.filter(type="part_time")
-    return render(request,'JobSeeker/parttime.html',{'jobs':jobs})
+    paginator = Paginator(jobs, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'JobSeeker/parttime.html',{"page_obj": page_obj})
 
 @login_required
 def internship(request):
     jobs = Job.objects.filter(type="internship")
-    return render(request,'JobSeeker/internship.html',{'jobs':jobs})
+    paginator = Paginator(jobs, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'JobSeeker/internship.html',{"page_obj": page_obj})
 
 @login_required
 def recruiter_view_jobseeker(request):
     data = Reg.objects.filter(is_recruiter=True)
-    return render(request, 'JobSeeker/view_recruiters_jobseeker.html', {"data": data})
+    paginator = Paginator(data, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'JobSeeker/view_recruiters_jobseeker.html', {"page_obj": page_obj})
+
+

@@ -1,37 +1,70 @@
 {% extends 'JobSeeker/USER_DASH.html' %}
-{%load crispy_forms_tags %}
-<head>
-<style type="text/css">
-    #div_id_search{
-    padding-left:660px;
+{% load crispy_forms_tags %}
 
-    }
-</style>
-    </head>
+<head>
+    <style type="text/css">
+        #div_id_search {
+            padding-left: 660px;
+        }
+    </style>
+</head>
 
 {% block content %}
-  <h2 style="text-align: center; padding-left:20px;" >Jobs</h2>
-  <div class="job-cards" >
-    <div style="padding-bottom:10px;padding-left:30px; margin:0">
-      <form method="get" class="form-inline">
-          <div class="md-form my-0">
-              {{job_filter.form|crispy}}
-
-              <button class="btn btn-primary" style="margin-left:710px;" type="submit">Search</button>
-          </div>
-      </form>
-          </div>
-    {% for job in job_list %}
-      <div class="card" style="width: 70%; margin: 0 15%; margin-bottom: 10px; padding: 10px;">
-        <div class="card-body" style="text-align:center">
-          <h3><b>{{ job.title }}</b></h3>
-          <p>{{ job.posted_by }}</p>
-          <p>{{ job.location }}</p>
-          <p>₹:{{ job.salary }}</p>
-          <p><mark>{{ job.get_type_display }}</mark></p>
-          <a href="{% url 'application' job.id %}" role="button" class="btn btn-primary" class="apply-button">Apply Now</a>
+    <h2 style="text-align: center; padding-left: 20px;">Jobs</h2>
+    <div class="job-cards">
+        <div style="padding-bottom: 10px; padding-left: 30px; margin: 0">
+            <form method="get" class="form-inline">
+                <div class="md-form my-0">
+                    {{ job_filter.form|crispy }}
+                    <button class="btn btn-primary" style="margin-left: 710px;" type="submit">Search</button>
+                </div>
+            </form>
         </div>
-      </div>
-    {% endfor %}
-  </div>
+        {% for job in job_list %}
+            <div class="card" style="width: 70%; margin: 0 15%; margin-bottom: 10px; padding: 10px;">
+                <div class="card-body" style="text-align: center">
+                    <h3><b>{{ job.title }}</b></h3>
+                    <p>{{ job.posted_by }}</p>
+                    <p>{{ job.location }}</p>
+                    <p>₹:{{ job.salary }}</p>
+                    <p><mark>{{ job.get_type_display }}</mark></p>
+                    <a href="{% url 'application' job.id %}" role="button" class="btn btn-primary apply-button">Apply Now</a>
+                </div>
+            </div>
+        {% endfor %}
+
+        <nav aria-label="Page navigation" style="text-align: center;">
+            <ul class="pagination justify-content-center">
+                {% if job_list.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ job_list.previous_page_number }}">Previous</a>
+                    </li>
+                {% endif %}
+
+                {% for num in job_list.paginator.page_range %}
+                    {% if job_list.number == num %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if job_list.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ job_list.next_page_number }}">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ job_list.paginator.num_pages }}">Last</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
 {% endblock %}

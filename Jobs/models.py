@@ -14,7 +14,7 @@ class Reg(AbstractUser):
     name = models.CharField(max_length=25, null=True)
     birth_date = models.DateField(null=True, blank=True)
     address = models.CharField(max_length=100, null=True)
-    mobile = models.CharField(max_length=20, null=True)
+    mobile = models.CharField(max_length=20, null=True, unique=True)
     profile_picture = models.FileField(upload_to='documents/', null=True)
 
     def __str__(self):
@@ -33,7 +33,7 @@ class Job(models.Model):
         ('part_time', 'Part Time'),
         ('internship', 'Internship')
     ]
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, unique=True)
     company = models.CharField(max_length=255)
     description = models.TextField()
     location = models.CharField(max_length=255)

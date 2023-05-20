@@ -2,15 +2,18 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href=" {% static 'jobseeker/index.css' %} ">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-L2Gn16pJ+lGntZk9Uf9vjQz6Kcr4fAPpemTVpVWJOo0Lc/zv96vKTwJLCHQyMd29Vun/J8PtTeAq6bCkKqMmSw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha512-L2Gn16pJ+lGntZk9Uf9vjQz6Kcr4fAPpemTVpVWJOo0Lc/zv96vKTwJLCHQyMd29Vun/J8PtTeAq6bCkKqMmSw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-      <style>
+    <style>
       /* Styles for the floating icon */
       .floating-icon {
         position: fixed;
@@ -39,115 +42,161 @@
       .dropdown:hover .dropdown-menu {
   display: block;
 }
+.footer {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
 
     </style>
 
-  </head>
-  <body>
-    <div>
+</head>
+<body>
+<div>
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"> <img class="logo-top"  src=" {% static 'jobseeker/images/top-logo1.jpg' %} " alt="logo-top"> </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> <img class="logo-top"
+                                                   src=" {% static 'jobseeker/images/top-logo1.jpg' %} " alt="logo-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarText">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'seeker_dashboard' %}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12.97 2.59a1.5 1.5 0 0 0-1.94 0l-7.5 6.363A1.5 1.5 0 0 0 3 10.097V19.5A1.5 1.5 0 0 0 4.5 21h4.75a.75.75 0 0 0 .75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 0 0 1.5-1.5v-9.403a1.5 1.5 0 0 0-.53-1.144l-7.5-6.363Z"></path></svg>Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'jobs' %}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7.5 1.75C7.5.784 8.284 0 9.25 0h5.5c.966 0 1.75.784 1.75 1.75V4h4.75c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 21.25 22H2.75A1.75 1.75 0 0 1 1 20.25V5.75C1 4.784 1.784 4 2.75 4H7.5Zm-5 10.24v8.26c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25v-8.26A4.235 4.235 0 0 1 18.75 13H5.25a4.235 4.235 0 0 1-2.75-1.01Zm19-3.24v-3a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v3a2.75 2.75 0 0 0 2.75 2.75h13.5a2.75 2.75 0 0 0 2.75-2.75Zm-6.5-7a.25.25 0 0 0-.25-.25h-5.5a.25.25 0 0 0-.25.25V4h6Z"></path></svg>  Jobs</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'profile' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-</svg>  Profile</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'jobseeker_feedback_view' %}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 18.75v-14C0 3.784.784 3 1.75 3ZM1.5 7.412V18.75c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V7.412l-9.52 6.433c-.592.4-1.368.4-1.96 0Zm0-2.662v.852l10.36 7a.25.25 0 0 0 .28 0l10.36-7V4.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Z"></path></svg>  Messages and Reply</a>
-                  </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{% url 'recruiter_view_jobseeker' %}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M10.586 1C12.268 1 13.5 2.37 13.5 4.25c0 1.745-.996 3.359-2.622 4.831-.166.15-.336.297-.509.438l1.116 5.584a.75.75 0 0 1-.991.852l-2.409-.876a.25.25 0 0 0-.17 0l-2.409.876a.75.75 0 0 1-.991-.852L5.63 9.519a13.78 13.78 0 0 1-.51-.438C3.497 7.609 2.5 5.995 2.5 4.25 2.5 2.37 3.732 1 5.414 1c.963 0 1.843.403 2.474 1.073L8 2.198l.112-.125a3.385 3.385 0 0 1 2.283-1.068L10.586 1Zm-3.621 9.495-.718 3.594 1.155-.42a1.75 1.75 0 0 1 1.028-.051l.168.051 1.154.42-.718-3.592c-.199.13-.37.235-.505.314l-.169.097a.75.75 0 0 1-.72 0 9.54 9.54 0 0 1-.515-.308l-.16-.105ZM10.586 2.5c-.863 0-1.611.58-1.866 1.459-.209.721-1.231.721-1.44 0C7.025 3.08 6.277 2.5 5.414 2.5 4.598 2.5 4 3.165 4 4.25c0 1.23.786 2.504 2.128 3.719.49.443 1.018.846 1.546 1.198l.325.21.076-.047.251-.163a13.341 13.341 0 0 0 1.546-1.198C11.214 6.754 12 5.479 12 4.25c0-1.085-.598-1.75-1.414-1.75Z"></path></svg>
- Recruiters</a>
-                  </li>
+                        <a class="nav-link active" aria-current="page" href="{% url 'seeker_dashboard' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M12.97 2.59a1.5 1.5 0 0 0-1.94 0l-7.5 6.363A1.5 1.5 0 0 0 3 10.097V19.5A1.5 1.5 0 0 0 4.5 21h4.75a.75.75 0 0 0 .75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 0 0 1.5-1.5v-9.403a1.5 1.5 0 0 0-.53-1.144l-7.5-6.363Z"></path>
+                            </svg>
+                            Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'jobs' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M7.5 1.75C7.5.784 8.284 0 9.25 0h5.5c.966 0 1.75.784 1.75 1.75V4h4.75c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 21.25 22H2.75A1.75 1.75 0 0 1 1 20.25V5.75C1 4.784 1.784 4 2.75 4H7.5Zm-5 10.24v8.26c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25v-8.26A4.235 4.235 0 0 1 18.75 13H5.25a4.235 4.235 0 0 1-2.75-1.01Zm19-3.24v-3a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v3a2.75 2.75 0 0 0 2.75 2.75h13.5a2.75 2.75 0 0 0 2.75-2.75Zm-6.5-7a.25.25 0 0 0-.25-.25h-5.5a.25.25 0 0 0-.25.25V4h6Z"></path>
+                            </svg>
+                            Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                            </svg>
+                            Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'jobseeker_feedback_view' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 18.75v-14C0 3.784.784 3 1.75 3ZM1.5 7.412V18.75c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V7.412l-9.52 6.433c-.592.4-1.368.4-1.96 0Zm0-2.662v.852l10.36 7a.25.25 0 0 0 .28 0l10.36-7V4.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Z"></path>
+                            </svg>
+                            Messages and Reply</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'recruiter_view_jobseeker' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                                <path d="M10.586 1C12.268 1 13.5 2.37 13.5 4.25c0 1.745-.996 3.359-2.622 4.831-.166.15-.336.297-.509.438l1.116 5.584a.75.75 0 0 1-.991.852l-2.409-.876a.25.25 0 0 0-.17 0l-2.409.876a.75.75 0 0 1-.991-.852L5.63 9.519a13.78 13.78 0 0 1-.51-.438C3.497 7.609 2.5 5.995 2.5 4.25 2.5 2.37 3.732 1 5.414 1c.963 0 1.843.403 2.474 1.073L8 2.198l.112-.125a3.385 3.385 0 0 1 2.283-1.068L10.586 1Zm-3.621 9.495-.718 3.594 1.155-.42a1.75 1.75 0 0 1 1.028-.051l.168.051 1.154.42-.718-3.592c-.199.13-.37.235-.505.314l-.169.097a.75.75 0 0 1-.72 0 9.54 9.54 0 0 1-.515-.308l-.16-.105ZM10.586 2.5c-.863 0-1.611.58-1.866 1.459-.209.721-1.231.721-1.44 0C7.025 3.08 6.277 2.5 5.414 2.5 4.598 2.5 4 3.165 4 4.25c0 1.23.786 2.504 2.128 3.719.49.443 1.018.846 1.546 1.198l.325.21.076-.047.251-.163a13.341 13.341 0 0 0 1.546-1.198C11.214 6.754 12 5.479 12 4.25c0-1.085-.598-1.75-1.414-1.75Z"></path>
+                            </svg>
+                            Recruiters</a>
+                    </li>
 
                     <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" role="button" id="servicesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-      <path fill="currentColor" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2Zm0 16.25a6.25 6.25 0 1 1 0-12.5 6.25 6.25 0 0 1 0 12.5Zm0-8.75a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
-    </svg>
-    Services
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-    <li><a class="dropdown-item" href="#">Resume writing</a></li>
-    <li><a class="dropdown-item" href="#">Get recruiter's attention</a></li>
-    <li><a class="dropdown-item" href="#">Monthly subscriptions</a></li>
-  </ul>
-</li>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="servicesDropdown"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor"
+                                      d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2Zm0 16.25a6.25 6.25 0 1 1 0-12.5 6.25 6.25 0 0 1 0 12.5Zm0-8.75a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+                            </svg>
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">Resume writing</a></li>
+                            <li><a class="dropdown-item" href="#">Get recruiter's attention</a></li>
+                            <li><a class="dropdown-item" href="#">Monthly subscriptions</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
 
                 <span class="navbar-text">
               <div class="dropdown">
-                <a class="btn dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="btn dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown"
+                   aria-expanded="false">
                   {{ request.user }}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
                   <li><a class="dropdown-item" href="{% url 'applied' %}">My Jobs</a></li>
                   <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-                  <li><a class="dropdown-item" href="{% url 'logout_view' %}" >Logout</a></li>
+                  <li><a class="dropdown-item" href="{% url 'logout_view' %}">Logout</a></li>
                 </ul>
               </div>
             </span>
 
-              </div>
             </div>
-          </nav>
+        </div>
+    </nav>
 
 
-      {%block content%}
-<div class=" container ">
+    {%block content%}
+    <div class=" container ">
         <div class="mt-5 ">
             <div class="row" style="padding-left:140px;">
-            <div class="card m-4 bg-primary  " style="width: 18rem;">
-              <div class="card-body ">
-                <h5 class="card-title pt-3 text-center ">Full Time</h5>
-                <a href="{% url 'fulltime' %}" class="card-link font-monospace text-reset text-white fw-semibold">"Explore Full-Time Opportunities"</a>
-              </div>
-            </div>
-            <div class="card m-4 bg-danger-subtle" style="width: 18rem; ">
-              <div class="card-body">
-                <h5 class="card-title pt-3 text-center ">Part Time</h5>
-                <a href="{% url 'parttime' %}" class="card-link font-monospace text-reset text-white fw-semibold">"Discover Part-Time Opportunities"</a>
-              </div>
-            </div>
-            <div class="card m-4 bg-primary-subtle" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title pt-3 text-center ">Internship</h5>
-                <a href="{% url 'internship' %}" class="card-link font-monospace text-reset text-white fw-semibold">"Explore Internship Opportunities"</a>
-              </div>
-            </div>
+                <div class="card m-4 bg-primary  " style="width: 18rem;">
+                    <div class="card-body ">
+                        <h5 class="card-title pt-3 text-center ">Full Time</h5>
+                        <a href="{% url 'fulltime' %}"
+                           class="card-link font-monospace text-reset text-white fw-semibold">"Explore Full-Time
+                            Opportunities"</a>
+                    </div>
+                </div>
+                <div class="card m-4 bg-danger-subtle" style="width: 18rem; ">
+                    <div class="card-body">
+                        <h5 class="card-title pt-3 text-center ">Part Time</h5>
+                        <a href="{% url 'parttime' %}"
+                           class="card-link font-monospace text-reset text-white fw-semibold">"Discover Part-Time
+                            Opportunities"</a>
+                    </div>
+                </div>
+                <div class="card m-4 bg-primary-subtle" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title pt-3 text-center ">Internship</h5>
+                        <a href="{% url 'internship' %}"
+                           class="card-link font-monospace text-reset text-white fw-semibold">"Explore Internship
+                            Opportunities"</a>
+                    </div>
+                </div>
             </div>
 
         </div>
-</div>
-        {%endblock%}
-
-        </div>
-
     </div>
-     <!-- Floating icon for sending messages -->
-    <a href="{% url 'jobseeker_feedback' %}" class="floating-icon">
-      <i class="fas fa-envelope"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
-  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-</svg></i>
-    </a>
+    {%endblock%}
 
+</div>
+
+</div>
+<!-- Floating icon for sending messages -->
+<a href="{% url 'jobseeker_feedback' %}" class="floating-icon">
+    <i class="fas fa-envelope">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left"
+             viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+        </svg>
+    </i>
+</a>
+<div class="footer">
+        This is the footer content.
+    </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
 </html>

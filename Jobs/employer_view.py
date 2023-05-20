@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
 from Jobs.forms import JobPostForm
@@ -23,7 +24,10 @@ def create_job_post(request):
 @login_required
 def jobs_posted(request):
     jobs = Job.objects.filter(posted_by=request.user)
-    return render(request,'Employer/posted_jobs.html',{'jobs':jobs})
+    paginator = Paginator(jobs, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'Employer/posted_jobs.html',{'jobs':page_obj})
 
 @login_required
 def applied_job_seeker(request,id):
