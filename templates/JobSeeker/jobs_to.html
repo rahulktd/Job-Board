@@ -1,9 +1,27 @@
 {% extends 'JobSeeker/USER_DASH.html' %}
+{%load crispy_forms_tags %}
+<head>
+<style type="text/css">
+    #div_id_search{
+    padding-left:660px;
+
+    }
+</style>
+    </head>
 
 {% block content %}
-  <h2 style="text-align: center;">Jobs</h2>
+  <h2 style="text-align: center; padding-left:20px;" >Jobs</h2>
   <div class="job-cards" >
-    {% for job in data %}
+    <div style="padding-bottom:10px;padding-left:30px; margin:0">
+      <form method="get" class="form-inline">
+          <div class="md-form my-0">
+              {{job_filter.form|crispy}}
+
+              <button class="btn btn-primary" style="margin-left:710px;" type="submit">Search</button>
+          </div>
+      </form>
+          </div>
+    {% for job in job_list %}
       <div class="card" style="width: 70%; margin: 0 15%; margin-bottom: 10px; padding: 10px;">
         <div class="card-body" style="text-align:center">
           <h3><b>{{ job.title }}</b></h3>

@@ -1,17 +1,28 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
+from Jobs.filters import RecruiterFilter, JobSeekerFilter
 from Jobs.models import Reg, Job, Feedback
 
 @login_required
+# def recruiter_view(request):
+#     data = Reg.objects.filter(is_recruiter=True)
+#     return render(request, 'Admin/view_recruiter_list.html', {"data": data})
+
+@login_required
 def recruiter_view(request):
-    data = Reg.objects.filter(is_recruiter=True)
-    return render(request, 'Admin/view_recruiter_list.html', {"data": data})
+    rec_list = Reg.objects.filter(is_recruiter=True)
+    rec_filter = RecruiterFilter(request.GET, queryset=rec_list)
+    rec_list = rec_filter.qs
+    return render(request, 'Admin/view_recruiter_list.html', {"rec_list": rec_list, "rec_filter": rec_filter})
 
 @login_required
 def job_seeker_view(request):
     data = Reg.objects.filter(is_seeker=True)
-    return render(request, 'Admin/view_employee_list.html', {"data": data})
+    seek_filter = JobSeekerFilter(request.GET, queryset=data)
+    data = seek_filter.qs
+    return render(request, 'Admin/view_employee_list.html', {"data": data,"seek_filter":seek_filter})
 
 @login_required
 def delete_recruiter(request, id):

@@ -2,14 +2,27 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
+from Jobs.filters import JobsFilter
 from Jobs.forms import ProfileForm, FeedbackForm, JobPostForm, JobApplicationForm
 from Jobs.models import Job, JobApplication, Feedback, Reg
 
 
+# def jobs(request):
+#     data = Job.objects.all()
+#     return render(request, 'JobSeeker/jobs_to.html', {"data": data})
+
 @login_required
+# def jobs(request):
+#     job_list = Job.objects.all()
+#     job_filter = JobsFilter(request.GET, queryset=job_list)
+#     job_list = job_filter.qs
+#     return render(request, 'JobSeeker/jobs_to.html', {"job_list": job_list, "job_filter": job_filter})
+
 def jobs(request):
-    data = Job.objects.all()
-    return render(request, 'JobSeeker/jobs_to.html', {"data": data})
+    job_list = Job.objects.all()
+    job_filter = JobsFilter(request.GET, queryset=job_list)
+    job_list = job_filter.qs
+    return render(request, 'JobSeeker/jobs_to.html', {"job_list": job_list, "job_filter": job_filter})
 
 @login_required
 def apply_job(request, id):
