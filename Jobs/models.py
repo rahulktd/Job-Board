@@ -7,6 +7,11 @@ from django.utils import timezone
 
 # Create your models here.
 class Reg(AbstractUser):
+    Education = [
+        ('plus_two', '+2'),
+        ('ug', 'Graduate'),
+        ('pg', 'Post Graduate')
+    ]
     is_recruiter = models.BooleanField(default=False)
     is_seeker = models.BooleanField(default=False)
     email = models.EmailField()
@@ -16,6 +21,8 @@ class Reg(AbstractUser):
     address = models.CharField(max_length=100, null=True)
     mobile = models.CharField(max_length=20, null=True, unique=True)
     profile_picture = models.FileField(upload_to='documents/', null=True)
+    qualification = models.CharField(max_length=20, choices=Education)
+    work_experience = models.CharField(max_length=2, null=True)
 
     def __str__(self):
         return str(self.name)
@@ -53,6 +60,7 @@ class JobApplication(models.Model):
     job_seeker = models.ForeignKey(Reg, on_delete=models.CASCADE)
     job_post = models.ForeignKey(Job, on_delete=models.CASCADE)
     applied_at = models.DateTimeField(default=timezone.now)
+    reply_message = models.TextField(blank=True, null=True)
     def __str__(self):
         return f"{self.job_seeker.username} - {self.job_post.title}"
 

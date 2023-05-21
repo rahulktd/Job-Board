@@ -28,6 +28,11 @@ urlpatterns = [
     path('jobs_posted',employer_view.jobs_posted,name='jobs_posted'),
     path('applied_job_seeker/<int:id>/',employer_view.applied_job_seeker,name='applied_job_seeker'),
     path('delete_job_rec/<int:id>/',employer_view.delete_job_rec,name='delete_job_rec'),
+    path('recruiter_feedback',employer_view.recruiter_feedback,name='recruiter_feedback'),
+    path('recruiter_feedback_view',employer_view.recruiter_feedback_view,name='recruiter_feedback_view'),
+    path('reply_view',employer_view.reply_view,name='reply_view'),
+    path('job_application_detail/<int:id>/',employer_view.job_application_detail,name='job_application_detail'),
+    path('recruiter_responses',employer_view.recruiter_responses,name='recruiter_responses'),
 
 
 
@@ -42,5 +47,6 @@ urlpatterns = [
     path('parttime', jobseeker_view.parttime, name='parttime'),
     path('internship', jobseeker_view.internship, name='internship'),
     path('recruiter_view_jobseeker', jobseeker_view.recruiter_view_jobseeker, name='recruiter_view_jobseeker'),
+    path('job_application_detail/<int:id>/', jobseeker_view.job_application_detail, name='job_application_detail'),
 
 ]

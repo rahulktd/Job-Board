@@ -1,0 +1,17 @@
+{% extends 'Employer/EMPLOYER_DASH.html' %}
+
+
+<h1>Recruiter Messages</h1>
+
+{% if job_applications %}
+    <ul>
+        {% for job_application in job_applications %}
+            <li>
+                <h2>{{ job_application.job_seeker.username }} - {{ job_application.job_post.title }}</h2>
+                <p><strong>Message:</strong> {{ job_application.reply_message }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No messages sent by recruiters.</p>
+{% endif %}

@@ -126,3 +126,6 @@ def recruiter_view_jobseeker(request):
     return render(request, 'JobSeeker/view_recruiters_jobseeker.html', {"page_obj": page_obj})
 
 
+def job_application_detail(request, id):
+    job_application = JobApplication.objects.get(id=id)
+    return render(request, 'JobSeeker/job_application_detail.html', {'job_application': job_application})

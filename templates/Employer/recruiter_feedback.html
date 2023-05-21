@@ -1,0 +1,26 @@
+{% extends "Employer/EMPLOYER_DASH.html" %}
+{%load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{% block content %}
+<div class="card" style="padding-top:10px">
+      <div class="card" style="width: 70%; margin: 0 15%; margin-bottom: 10px; padding: 10px;">
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{feedback_form|crispy}}
+    <button type="submit" class="btn btn-primary">send</button>
+</form>
+
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>
