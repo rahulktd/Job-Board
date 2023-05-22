@@ -44,7 +44,7 @@ def user_login(request):
 
 def registration(request):
     if request.method == 'POST':
-        employer_form = EmployerForm(request.POST)
+        employer_form = EmployerForm(request.POST,request.FILES)
         if employer_form.is_valid():
             user = employer_form.save(commit=False)
             user.password = make_password(employer_form.cleaned_data.get('password1'))
@@ -57,7 +57,7 @@ def registration(request):
 
 def employee_registration(request):
     if request.method == 'POST':
-        seeker_form = SeekerForm(request.POST)
+        seeker_form = SeekerForm(request.POST,request.FILES)
         if seeker_form.is_valid():
             user = seeker_form.save(commit=False)
             user.password = make_password(seeker_form.cleaned_data.get('password1'))

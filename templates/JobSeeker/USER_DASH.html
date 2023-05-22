@@ -49,7 +49,48 @@
   bottom: 0;
   left: 0;
 }
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
 
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+ @media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+
+  @media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
 
     </style>
 
@@ -82,21 +123,8 @@
                             </svg>
                             Jobs</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                 class="bi bi-person-fill" viewBox="0 0 16 16">
-                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                            </svg>
-                            Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'jobseeker_feedback_view' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                <path d="M1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 18.75v-14C0 3.784.784 3 1.75 3ZM1.5 7.412V18.75c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V7.412l-9.52 6.433c-.592.4-1.368.4-1.96 0Zm0-2.662v.852l10.36 7a.25.25 0 0 0 .28 0l10.36-7V4.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Z"></path>
-                            </svg>
-                            Messages and Reply</a>
-                    </li>
+
+
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'recruiter_view_jobseeker' %}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
@@ -141,7 +169,28 @@
         </div>
     </nav>
 
+<div class="sidebar">
+  <a>{% if user.profile_picture %}
+    <img src="{{ user.profile_picture.url }}" alt="Profile Picture" style=" border-radius: 50%;width: 50px; height: 50px;">
+{% else %}
+    <img src="{% static 'path/to/default/profile-picture.jpg' %}" alt="Default Profile Picture" style="width: 50px; height: 50px;">
+{% endif %}
 
+    </a>
+    <h3>{{request.user}}</h3>
+                        <a href="{% url 'profile' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                            </svg>
+                            Profile</a>
+                    </a>
+                        <a href="{% url 'jobseeker_feedback_view' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 18.75v-14C0 3.784.784 3 1.75 3ZM1.5 7.412V18.75c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V7.412l-9.52 6.433c-.592.4-1.368.4-1.96 0Zm0-2.662v.852l10.36 7a.25.25 0 0 0 .28 0l10.36-7V4.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Z"></path>
+                            </svg>
+                            Messages</a>
+</div>
     {%block content%}
     <div class=" container ">
         <div class="mt-5 ">
@@ -180,6 +229,7 @@
 
 </div>
 <!-- Floating icon for sending messages -->
+<div>
 <a href="{% url 'jobseeker_feedback' %}" class="floating-icon">
     <i class="fas fa-envelope">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left"
@@ -188,9 +238,10 @@
         </svg>
     </i>
 </a>
-<div class="footer">
-        This is the footer content.
     </div>
+<!--<div class="footer">-->
+<!--        This is the footer content.-->
+<!--    </div>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
 
 
