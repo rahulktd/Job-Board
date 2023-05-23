@@ -45,7 +45,7 @@ class JobApplicationForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Reg
-        fields = ('username', 'name', 'email', 'birth_date', 'address', 'mobile',)
+        fields = ("email","name","birth_date","qualification","work_experience","mobile","profile_picture",)
 
 class FeedbackForm(forms.ModelForm):
     class Meta:

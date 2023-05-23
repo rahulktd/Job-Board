@@ -7,13 +7,13 @@ from Jobs.filters import JobsFilter
 from Jobs.forms import ProfileForm, FeedbackForm, JobPostForm, JobApplicationForm
 from Jobs.models import Job, JobApplication, Feedback, Reg
 
+@login_required
 def jobs(request):
     job_list = Job.objects.all()
     job_filter = JobsFilter(request.GET, queryset=job_list)
     job_list = job_filter.qs
 
     paginator = Paginator(job_list, 3)
-
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -126,6 +126,12 @@ def recruiter_view_jobseeker(request):
     return render(request, 'JobSeeker/view_recruiters_jobseeker.html', {"page_obj": page_obj})
 
 
+@login_required
 def job_application_detail(request, id):
     job_application = JobApplication.objects.get(id=id)
     return render(request, 'JobSeeker/job_application_detail.html', {'job_application': job_application})
+
+@login_required
+def profile_view(request):
+    u = request.user
+    return render(request,'JobSeeker/profile_view.html',{'u':u})

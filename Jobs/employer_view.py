@@ -61,7 +61,7 @@ def recruiter_feedback(request):
     else:
         feedback_form = FeedbackForm
     return render(request, 'Employer/recruiter_feedback.html', {'feedback_form': feedback_form})
-
+@login_required
 def recruiter_feedback_view(request):
     u = request.user
     feedback=Feedback.objects.filter(user=u)
@@ -80,6 +80,7 @@ def reply_view(request):
     return render(request, 'Employer/recruiter_feedback_view.html', {'feedback': feedback})
 
 
+@login_required
 def job_application_detail(request, id):
     job_application = Job.objects.get(id=id)
     if request.method == 'POST':
@@ -93,6 +94,7 @@ def job_application_detail(request, id):
     return render(request, 'Employer/response_to_application.html', {'job_application': job_application,'form': form})
 
 
+@login_required
 def recruiter_responses(request):
     job_applications = JobApplication.objects.filter(reply_message__isnull=False)
     return render(request, 'Employer/recruiter_messages_jobseeker.html', {'job_applications':job_applications})
