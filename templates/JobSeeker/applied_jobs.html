@@ -1,19 +1,26 @@
 {% extends 'JobSeeker/USER_DASH.html' %}
-{% block content %}
-<div class="card" style="padding-top:10px">
-      <div class="card" style="width: 70%; margin: 0 15%; margin-bottom: 10px; padding: 10px;">
 
-  <h2>Applied Jobs</h2>
-  {% if applied_jobs %}
-    <ul>
-      {% for job_application in applied_jobs %}
-        <li>{{ job_application.job_post.title }}</li>
-        <!-- Display other job details as needed -->
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No applied jobs found.</p>
-  {% endif %}
-      </div>
+{% block content %}
+  <h1>Applied Jobs</h1>
+
+  {% for job_application in applied_jobs %}
+<div class="card">
+  <div class="card-body">
+    <div class="job">
+      <h2>{{ job_application.job_post.title }}</h2>
+      <p>Company: {{ job_application.job_post.company }}</p>
+      <p>Location: {{ job_application.job_post.location }}</p>
+      <p>Applied At: {{ job_application.applied_at }}</p>
+
+      {% if job_application.reply_message %}
+        <p>Response: {{ job_application.reply_message }}</p>
+        <a href="{% url 'job_application_detail_js' job_application.id %}">View Response</a>
+      {% else %}
+        <p>No response yet.</p>
+      {% endif %}
+    </div>
+  </div>
 </div>
+  {% endfor %}
 {% endblock %}
+

@@ -1,19 +1,15 @@
 {% extends 'Employer/EMPLOYER_DASH.html' %}
 
-<h1>Job Application Details</h1>
+{% block content %}
+  <h1>Job Application Detail</h1>
+  <p><strong>Name:</strong> {{ job_application.name }}</p>
+  <p><strong>Email:</strong> {{ job_application.email }}</p>
+  <p><strong>CV:</strong> {{ job_application.cv }}</p>
 
-<p><strong>Name:</strong> {{ job_application.name }}</p>
-<p><strong>Email:</strong> {{ job_application.email }}</p>
-<!-- Add other fields as needed -->
-
-{% if job_application.reply_message %}
-    <h2>Reply Message</h2>
-    <p>{{ job_application.reply_message }}</p>
-{% else %}
-    <h2>Reply</h2>
-    <form method="post" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Send Reply</button>
-    </form>
-{% endif %}
+  <h2>Reply to Application</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

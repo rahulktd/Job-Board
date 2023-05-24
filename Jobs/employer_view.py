@@ -3,8 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
+from Jobs.filters import JobSeekerFilter
 from Jobs.forms import JobPostForm, FeedbackForm, JobApplicationReplyForm
-from Jobs.models import Job, JobApplication, Feedback
+from Jobs.models import Job, JobApplication, Feedback, Reg
 
 
 @login_required
@@ -82,13 +83,14 @@ def reply_view(request):
 
 @login_required
 def job_application_detail(request, id):
-    job_application = Job.objects.get(id=id)
+    job_application = JobApplication.objects.get(id=id)
     if request.method == 'POST':
         form = JobApplicationReplyForm(request.POST)
         if form.is_valid():
             reply_message = form.cleaned_data['reply_message']
             job_application.reply_message = reply_message
             job_application.save()
+            return redirect("jobs_posted")
     else:
         form = JobApplicationReplyForm()
     return render(request, 'Employer/response_to_application.html', {'job_application': job_application,'form': form})
@@ -96,5 +98,15 @@ def job_application_detail(request, id):
 
 @login_required
 def recruiter_responses(request):
-    job_applications = JobApplication.objects.filter(reply_message__isnull=False)
+    job_applications = JobApplication.objects.exclude(reply_message__isnull=True)
     return render(request, 'Employer/recruiter_messages_jobseeker.html', {'job_applications':job_applications})
+
+@login_required
+def registered_for_job(request):
+    data = Reg.objects.filter(is_seeker=True)
+    seek_filter = JobSeekerFilter(request.GET, queryset=data)
+    data = seek_filter.qs
+    paginator = Paginator(data, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'Employer/registered_for_job.html', {"data": page_obj, "seek_filter": seek_filter})

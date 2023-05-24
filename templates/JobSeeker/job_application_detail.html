@@ -1,13 +1,12 @@
 {% extends 'JobSeeker/USER_DASH.html' %}
 
+{% block content %}
 <h1>Job Application Detail</h1>
 
 <h2>{{ job_application.job_seeker.username }} - {{ job_application.job_post.title }}</h2>
 <p><strong>Message:</strong> {{ job_application.reply_message }}</p>
 
-{% if job_application.reply_message %}
-    <h3>Response from Recruiter:</h3>
-    <p>{{ job_application.reply_message }}</p>
-{% else %}
-    <p>No response from the recruiter yet.</p>
-{% endif %}
+
+
+{% endblock %}
+

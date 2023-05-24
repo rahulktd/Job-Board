@@ -1,17 +1,25 @@
 {% extends 'Employer/EMPLOYER_DASH.html' %}
 
 
-<h1>Recruiter Messages</h1>
+{% block content %}
+  <h1>Job Application Responses</h1>
 
-{% if job_applications %}
-    <ul>
-        {% for job_application in job_applications %}
-            <li>
-                <h2>{{ job_application.job_seeker.username }} - {{ job_application.job_post.title }}</h2>
-                <p><strong>Message:</strong> {{ job_application.reply_message }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No messages sent by recruiters.</p>
-{% endif %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Job Seeker</th>
+        <th>Job Post</th>
+        <th>Reply Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for job_application in job_applications %}
+        <tr>
+          <td>{{ job_application.job_seeker.username }}</td>
+          <td>{{ job_application.job_post.title }}</td>
+          <td>{{ job_application.reply_message }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

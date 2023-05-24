@@ -23,7 +23,7 @@
           <td>{{ application.email }}</td>
           <td><a href="{{ application.cv.url }}" target="_blank">Download CV</a></td>
           <td scope="row">
-            <form action="{% url 'job_application_detail' i.id %}" method="POST" class="d-inline-block">
+            <form action="{% url 'job_application_detail' application.id %}" method="POST" class="d-inline-block">
 {% csrf_token %}
                 <input type="submit" class="btn btn-danger" value="Respond"/>
             </form>

@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
 from Jobs.filters import JobsFilter
-from Jobs.forms import ProfileForm, FeedbackForm, JobPostForm, JobApplicationForm
+from Jobs.forms import ProfileForm, FeedbackForm, JobPostForm, JobApplicationForm, JobApplicationReplyForm
 from Jobs.models import Job, JobApplication, Feedback, Reg
 
 @login_required
@@ -127,7 +127,7 @@ def recruiter_view_jobseeker(request):
 
 
 @login_required
-def job_application_detail(request, id):
+def job_application_detail_js(request, id):
     job_application = JobApplication.objects.get(id=id)
     return render(request, 'JobSeeker/job_application_detail.html', {'job_application': job_application})
 
@@ -135,3 +135,19 @@ def job_application_detail(request, id):
 def profile_view(request):
     u = request.user
     return render(request,'JobSeeker/profile_view.html',{'u':u})
+
+@login_required
+def response_recruiter(request,id):
+    job_application = JobApplication.objects.get(id=id)
+    if request.method == 'POST':
+        form = JobApplicationReplyForm(request.POST)
+        if form.is_valid():
+            reply_message = form.cleaned_data['reply_message']
+            job_application.reply_message = reply_message
+            job_application.save()
+    else:
+        form = JobApplicationReplyForm()
+    return render(request,'JobSeeker/response_recruiter.html',{'job_application': job_application, 'form': form})
+
+
+

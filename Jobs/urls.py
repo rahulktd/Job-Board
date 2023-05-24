@@ -33,6 +33,7 @@ urlpatterns = [
     path('reply_view',employer_view.reply_view,name='reply_view'),
     path('job_application_detail/<int:id>/',employer_view.job_application_detail,name='job_application_detail'),
     path('recruiter_responses',employer_view.recruiter_responses,name='recruiter_responses'),
+    path('registered_for_job',employer_view.registered_for_job,name='registered_for_job'),
 
 
 
@@ -47,7 +48,8 @@ urlpatterns = [
     path('parttime', jobseeker_view.parttime, name='parttime'),
     path('internship', jobseeker_view.internship, name='internship'),
     path('recruiter_view_jobseeker', jobseeker_view.recruiter_view_jobseeker, name='recruiter_view_jobseeker'),
-    path('job_application_detail/<int:id>/', jobseeker_view.job_application_detail, name='job_application_detail'),
+    path('job_application_detail_js/<int:id>/', jobseeker_view.job_application_detail_js, name='job_application_detail_js'),
     path('profile_view', jobseeker_view.profile_view, name='profile_view'),
+    path('response_recruiter/<int:id>/', jobseeker_view.response_recruiter, name='response_recruiter'),
 
 ]

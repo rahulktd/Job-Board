@@ -1,21 +1,25 @@
 {% extends 'JobSeeker/USER_DASH.html' %}
 
 {% block content %}
-  <div style="text-align: center;">
-    <h1>Profile</h1>
+<h1 style="text-align: center;">Profile</h1>
+<div class="card">
+
+  <div style="text-align: center; ">
+
     {% if user.profile_picture %}
-      <img src="{{ user.profile_picture.url }}" style="border-radius: 50%; width: 100px; height: 100px;" alt="Profile Picture">
+      <img src="{{ user.profile_picture.url }}" style="border-radius: 50%; width: 100px; height: 100px;margin-top:5px;" alt="Profile Picture">
     {% endif %}
     <h1>Welcome, {{ user.username }}!</h1>
     <p>Name: {{ user.name }}</p>
     <p>Email: {{ user.email }}</p>
     <p>Birth Date: {{ user.birth_date }}</p>
-    <p>Address: {{ user.address }}</p>
     <p>Mobile: {{ user.mobile }}</p>
     <p>Qualification: {{ user.qualification }}</p>
     <p>Work Experience: {{ user.work_experience }}</p>
   </div>
-  <a href="profile" class="btn btn-info btn-lg">
+  <a href="profile" class="btn btn-info btn-lg" style="margin-bottom:10px;">
     <span class="glyphicon glyphicon-edit"></span> Edit Your Profile
   </a>
+
+  </div>
 {% endblock %}

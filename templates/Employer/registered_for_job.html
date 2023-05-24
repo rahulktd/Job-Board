@@ -1,0 +1,77 @@
+{% extends "Employer/EMPLOYER_DASH.html" %}
+{%load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<div class="card">
+  <div class="card-body">
+      <div style="padding-bottom:10px;">
+      <form method="get" class="form-inline">
+          <div class="md-form my-0">
+              {{seek_filter.form|crispy}}
+
+              <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+      </form>
+          </div>
+<table class="table table-hover table-bordered border-primary">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Delete</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+    <tr>
+        <td scope="row">{{i.name}}</td>
+        <td scope="row">{{i.mobile}}</td>
+        <td scope="row">
+            <form action="{% url 'delete_employee' i.id %}" method="POST" class="d-inline-block">
+{% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="delete"/>
+            </form>
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+      </div>
+</div>
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if data.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">First</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ data.previous_page_number }}">Previous</a>
+        </li>
+        {% endif %}
+
+        <li class="page-item active">
+            <a class="page-link" href="#">{{ data.number }}</a>
+        </li>
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ data.next_page_number }}">Next</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ data.paginator.num_pages }}">Last</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}
+</body>
+</html>
