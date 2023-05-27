@@ -61,7 +61,6 @@ def profile(request):
 
 @login_required
 def jobseeker_feedback(request):
-    feedback_form = FeedbackForm
     u = request.user
     if request.method=='POST':
         feedback_form = FeedbackForm(request.POST)

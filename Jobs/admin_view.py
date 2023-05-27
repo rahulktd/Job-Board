@@ -53,7 +53,7 @@ def delete_job(request, id):
 
 @login_required
 def admin_feedback_view(request):
-    feedback=Feedback.objects.all()
+    feedback = Feedback.objects.all()
     paginator = Paginator(feedback, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

@@ -30,7 +30,6 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, f"Logged in as {user.username}")
             if user.is_staff:
                 return redirect('admin_dashboard')
             elif user.is_recruiter:

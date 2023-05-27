@@ -32,11 +32,6 @@ def jobs_posted(request):
 
 @login_required
 def applied_job_seeker(request,id):
-    # applied_jobs = JobApplication.objects.all()
-    # return render(request, 'Employer/rec_applications.html', {'applied_jobs': applied_jobs})
-    # job = Job.objects.get(id=id)
-    # applications = JobApplication.objects.filter(job_post=job)
-    # return render(request, 'Employer/rec_applications.html', {'job': job, 'applications': applications})
     job = Job.objects.get(id=id)
     applications = job.jobapplication_set.all()
     return render(request, 'Employer/rec_applications.html', {'job': job, 'applications': applications})
@@ -49,7 +44,6 @@ def delete_job_rec(request, id):
 
 @login_required
 def recruiter_feedback(request):
-    feedback_form = FeedbackForm
     u = request.user
     if request.method=='POST':
         feedback_form = FeedbackForm(request.POST)
